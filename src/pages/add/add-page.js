@@ -1,6 +1,10 @@
+import { connect } from 'pwa-helpers';
 import { LitElement, html, css } from 'lit';
 
-class AddPage extends LitElement {
+import { store } from '../../store/store';
+import { add, employeeSelector } from '../../store/reducer';
+
+class AddPage extends connect(store)(LitElement) {
   static styles = css`
     .form {
       display: flex;
@@ -19,10 +23,15 @@ class AddPage extends LitElement {
 
   onFormSubmit(event) {
     event.preventDefault();
+    console.log('prev', employeeSelector(store.getState()));
     const formData = new FormData(event.target);
+    let data = {};
     for (const pair of formData.entries()) {
       console.log(pair[0], pair[1]);
+      data[pair[0]] = pair[1];
     }
+
+    store.dispatch(add(data));
   }
 
   render() {
