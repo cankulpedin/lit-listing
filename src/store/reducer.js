@@ -7,6 +7,7 @@ const INITIAL_STATE = {
 
 export const ADD = 'ADD';
 export const GET_ALL = 'GET_ALL';
+export const DELETE = 'DELETE';
 
 export const employeeSelector = (state, pageNumber) => {
   return state.employees.slice(
@@ -21,6 +22,13 @@ export const add = employee => {
   return {
     type: ADD,
     employee,
+  };
+};
+
+export const deleteEmployee = id => {
+  return {
+    type: DELETE,
+    id,
   };
 };
 
@@ -40,6 +48,11 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case GET_ALL:
       return {
         employees: state.employees,
+      };
+    case DELETE:
+      return {
+        ...state,
+        employees: state.employees.filter(e => e.id !== action.id),
       };
     default:
       return state;
