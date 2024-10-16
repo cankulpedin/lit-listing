@@ -2,7 +2,7 @@ import { connect } from 'pwa-helpers';
 import { LitElement, html, css } from 'lit';
 
 import { store } from '../../store/store';
-import { add, employeeSelector } from '../../store/reducer';
+import { add } from '../../store/reducer';
 
 class AddPage extends connect(store)(LitElement) {
   static styles = css`
@@ -23,11 +23,10 @@ class AddPage extends connect(store)(LitElement) {
 
   onFormSubmit(event) {
     event.preventDefault();
-    console.log('prev', employeeSelector(store.getState()));
+
     const formData = new FormData(event.target);
     let data = {};
     for (const pair of formData.entries()) {
-      console.log(pair[0], pair[1]);
       data[pair[0]] = pair[1];
     }
 
