@@ -9,6 +9,7 @@ import {
 } from '../../store/reducer';
 import { PAGE_ELEMENT_COUNT, TABS } from './list-page.constants';
 import { Router } from '@vaadin/router';
+import { msg } from '@lit/localize';
 
 class ListPage extends connect(store)(LitElement) {
   static state = {
@@ -119,7 +120,7 @@ class ListPage extends connect(store)(LitElement) {
   }
 
   onDelete(id) {
-    const approveDelete = confirm('You are going to delete this user!');
+    const approveDelete = confirm(msg('You are going to delete this user!'));
 
     if (!approveDelete) {
       return;
@@ -158,10 +159,10 @@ class ListPage extends connect(store)(LitElement) {
         </div>
         <div class="buttons">
           <button class="edit" @click=${() => this.onEdit(employee.id)}>
-            EDIT
+            ${msg('EDIT')}
           </button>
           <button class="delete" @click=${() => this.onDelete(employee.id)}>
-            DELETE
+            ${msg('DELETE')}
           </button>
         </div>
       </div>`;
@@ -214,13 +215,13 @@ class ListPage extends connect(store)(LitElement) {
             class=${`button ${this._currentTab === TABS.LIST ? 'active' : ''}`}
             @click="${() => this.onClickTab(TABS.LIST)}"
           >
-            List
+            ${msg('List')}
           </button>
           <button
             class=${`button ${this._currentTab === TABS.TABLE ? 'active' : ''}`}
             @click="${() => this.onClickTab(TABS.TABLE)}"
           >
-            Table
+            ${msg('Table')}
           </button>
         </div>
         ${this._currentTab === TABS.LIST

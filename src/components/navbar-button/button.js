@@ -1,10 +1,10 @@
-import { Router } from '@vaadin/router';
 import { LitElement, html, css } from 'lit';
+import { Router } from '@vaadin/router';
 
 class NavbarButton extends LitElement {
   static get properties() {
     return {
-      textId: { type: String },
+      text: { type: String },
       path: { type: String },
     };
   }
@@ -30,7 +30,7 @@ class NavbarButton extends LitElement {
 
   render() {
     return html` <button class="button-wrapper" @click="${this.onClickButton}">
-      ${this.textId}
+      ${this.text}
     </button>`;
   }
 }

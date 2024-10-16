@@ -5,6 +5,7 @@ import { Router } from '@vaadin/router';
 import { store } from '../../store/store';
 import { findEmployee, updateEmployee } from '../../store/reducer';
 import '../../components/employee-form/employee-form';
+import { msg } from '@lit/localize';
 
 class EditPage extends connect(store)(LitElement) {
   static state = {
@@ -29,7 +30,9 @@ class EditPage extends connect(store)(LitElement) {
 
   onFormSubmit(event) {
     event.preventDefault();
-    const userConfirmed = confirm('Are you sure you want to submit this form?');
+    const userConfirmed = confirm(
+      msg('Are you sure you want to submit this form?'),
+    );
     if (!userConfirmed) {
       return;
     }

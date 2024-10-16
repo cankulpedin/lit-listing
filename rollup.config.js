@@ -35,6 +35,7 @@ export default {
     importMetaAssets(),
     /** Minify html and css tagged template literals */
     babel({
+      babelHelpers: 'bundled',
       plugins: [
         [
           'babel-plugin-template-html-minifier',

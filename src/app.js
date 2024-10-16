@@ -1,4 +1,3 @@
-import 'urlpattern-polyfill';
 import { LitElement, html, css } from 'lit';
 
 import './components/sidebar/sidebar.js';
@@ -32,6 +31,7 @@ class IngProj extends LitElement {
 
   firstUpdated() {
     super.firstUpdated();
+
     this.router = router(this);
   }
 

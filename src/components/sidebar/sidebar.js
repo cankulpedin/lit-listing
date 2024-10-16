@@ -1,4 +1,6 @@
 import { LitElement, html, css } from 'lit';
+import { msg } from '@lit/localize';
+
 import '../navbar-button/button.js';
 
 class Sidebar extends LitElement {
@@ -18,12 +20,12 @@ class Sidebar extends LitElement {
     return html` <div class="sidebar-wrapper">
       <navbar-button
         class="button"
-        textId="Employee List"
+        text=${msg('Employee List')}
         path="list"
       ></navbar-button>
       <navbar-button
         class="button"
-        textId="Add Employee"
+        text=${msg('Add Employee')}
         path="add"
       ></navbar-button>
     </div>`;

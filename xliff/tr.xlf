@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<file target-language="tr" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<body>
+<trans-unit id="s3d249bb480032121">
+  <source>List</source>
+  <target>Liste</target>
+</trans-unit>
+<trans-unit id="s337a1e9022a8d19f">
+  <source>Table</source>
+  <target>Tablo</target>
+</trans-unit>
+<trans-unit id="s3db6c3999daeecdb">
+  <source>Employee List</source>
+  <target>Çalışan Listesi</target>
+</trans-unit>
+<trans-unit id="s32c9b3dd030fc24c">
+  <source>Add Employee</source>
+  <target>Çalışan Ekle</target>
+</trans-unit>
+<trans-unit id="sd909eefa75c088da">
+  <source>You are going to delete this user!</source>
+  <target>Bu kullanıcıyı silmek üzeresin!</target>
+</trans-unit>
+<trans-unit id="s77fe2a6cc9029fb1">
+  <source>EDIT</source>
+  <target>DÜZENLE</target>
+</trans-unit>
+<trans-unit id="s5cd15819e278608a">
+  <source>DELETE</source>
+  <target>SİL</target>
+</trans-unit>
+<trans-unit id="sa46728ac3805cbf4">
+  <source>Are you sure you want to submit this form?</source>
+  <target>Bu formu göndermek istediğine emin misim?</target>
+</trans-unit>
+<trans-unit id="s2c57913ffd36d298">
+  <source>First Name</source>
+  <target>Ad</target>
+</trans-unit>
+<trans-unit id="s95a75a2392af5780">
+  <source>Last Name</source>
+  <target>Soyad</target>
+</trans-unit>
+<trans-unit id="s772528836550622c">
+  <source>Date of Employment</source>
+  <target>İşe Giriş Tarihi</target>
+</trans-unit>
+<trans-unit id="s53802e3f37d072a7">
+  <source>Date of Birth</source>
+  <target>Doğum Günü</target>
+</trans-unit>
+<trans-unit id="s871b1fe6d1846958">
+  <source>Phone Number</source>
+  <target>Telefon no</target>
+</trans-unit>
+<trans-unit id="s1e2e135dac5ba993">
+  <source>Email Address</source>
+  <target>Email Adresi</target>
+</trans-unit>
+<trans-unit id="s1e45a4d7635fbda7">
+  <source>Department</source>
+  <target>Departman</target>
+</trans-unit>
+<trans-unit id="s2c2b04f2561a1d4b">
+  <source>Analytics</source>
+  <target>Analitik</target>
+</trans-unit>
+<trans-unit id="s24aadbfb1b1a1a11">
+  <source>Tech</source>
+  <target>Teknik</target>
+</trans-unit>
+<trans-unit id="sc1611c0558728a2a">
+  <source>Position</source>
+  <target>Pozisyon</target>
+</trans-unit>
+<trans-unit id="s7404d9208a486318">
+  <source>Junior</source>
+  <target>Yeni</target>
+</trans-unit>
+<trans-unit id="sacc4d771f79ccced">
+  <source>Medior</source>
+  <target>Orta Seviye</target>
+</trans-unit>
+<trans-unit id="s8a37652cc28d3c55">
+  <source>Senior</source>
+  <target>Uzman</target>
+</trans-unit>
+<trans-unit id="sb3d4f79d9d8b71e5">
+  <source>Submit</source>
+  <target>Gönder</target>
+</trans-unit>
+</body>
+</file>
+</xliff>
