@@ -18,6 +18,7 @@ class NavbarButton extends LitElement {
       width: 100%;
       height: 32px;
       margin-bottom: 8px;
+      cursor: pointer;
     }
   `;
 

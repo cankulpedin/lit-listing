@@ -1,10 +1,13 @@
 import { LitElement, html, css } from 'lit';
 
+import validations from './employee-form.validation';
+
 class EmployeeForm extends LitElement {
   static get properties() {
     return {
       initialValues: {},
       onSubmit: {},
+      validationFunction: {},
     };
   }
 
@@ -24,13 +27,35 @@ class EmployeeForm extends LitElement {
     }
   `;
 
+  validate(event) {
+    if (this.validationFunction) {
+      return this.validationFunction(event);
+    } else {
+      const formData = new FormData(event.target);
+      let errors = {};
+      for (const pair of formData.entries()) {
+        if (validations[pair[0]] === undefined) continue;
+        if (!validations[pair[0]](pair[1])) errors[pair[0]] = false;
+      }
+
+      if (JSON.stringify(errors) !== '{}') {
+        confirm(`Errors on ${Object.keys(errors).join(', ')}`);
+        return false;
+      }
+
+      return true;
+    }
+  }
+
   onFormSubmit(event) {
-    this.onSubmit(event);
+    event.preventDefault();
+    if (this.validate(event)) this.onSubmit(event);
   }
 
   render() {
     return html`
       <form class="form" @submit="${this.onFormSubmit}">
+        <label>First Name</label>
         <input
           class="form-input"
           type="text"
@@ -39,6 +64,7 @@ class EmployeeForm extends LitElement {
           placeholder="First Name"
           required
         />
+        <label>Last Name</label>
         <input
           class="form-input"
           type="text"
@@ -47,6 +73,7 @@ class EmployeeForm extends LitElement {
           placeholder="Last Name"
           required
         />
+        <label>Employement Date</label>
         <input
           class="form-input"
           type="date"
@@ -55,6 +82,7 @@ class EmployeeForm extends LitElement {
           placeholder="Date of Employment"
           required
         />
+        <label>Birth Date</label>
         <input
           class="form-input"
           type="date"
@@ -63,6 +91,7 @@ class EmployeeForm extends LitElement {
           placeholder="Date of Birth"
           required
         />
+        <label>Phone Number</label>
         <input
           class="form-input"
           type="tel"
@@ -71,6 +100,7 @@ class EmployeeForm extends LitElement {
           placeholder="Phone Number"
           required
         />
+        <label>Email</label>
         <input
           class="form-input"
           type="email"
@@ -79,6 +109,7 @@ class EmployeeForm extends LitElement {
           placeholder="Email Address"
           required
         />
+        <label>Department</label>
         <select
           class="form-input"
           name="department"
@@ -89,6 +120,7 @@ class EmployeeForm extends LitElement {
           <option value="Analytics">Analytics</option>
           <option value="Tech">Tech</option>
         </select>
+        <label>Position</label>
         <select
           class="form-input"
           name="position"

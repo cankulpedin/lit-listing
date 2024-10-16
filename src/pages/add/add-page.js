@@ -1,5 +1,6 @@
 import { connect } from 'pwa-helpers';
 import { LitElement, html } from 'lit';
+import { Router } from '@vaadin/router';
 
 import { store } from '../../store/store';
 import { add } from '../../store/reducer';
@@ -17,6 +18,7 @@ class AddPage extends connect(store)(LitElement) {
     }
 
     store.dispatch(add(data));
+    Router.go(`/list`);
   }
 
   render() {

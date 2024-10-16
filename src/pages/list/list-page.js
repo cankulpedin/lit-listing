@@ -8,6 +8,7 @@ import {
   employeeSelector,
 } from '../../store/reducer';
 import { PAGE_ELEMENT_COUNT, TABS } from './list-page.constants';
+import { Router } from '@vaadin/router';
 
 class ListPage extends connect(store)(LitElement) {
   static state = {
@@ -37,6 +38,7 @@ class ListPage extends connect(store)(LitElement) {
         flex-direction: row;
 
         .button {
+          cursor: pointer;
           padding: 12px 32px;
           margin-right: 32px;
           border: 1px solid black;
@@ -67,9 +69,11 @@ class ListPage extends connect(store)(LitElement) {
             width: 30%;
 
             .edit {
+              cursor: pointer;
               margin-bottom: 16px;
             }
             .delete {
+              cursor: pointer;
               background-color: red;
             }
           }
@@ -115,6 +119,12 @@ class ListPage extends connect(store)(LitElement) {
   }
 
   onDelete(id) {
+    const approveDelete = confirm('You are going to delete this user!');
+
+    if (!approveDelete) {
+      return;
+    }
+
     store.dispatch(deleteEmployee(id));
 
     let newPage = this._currentPage;
@@ -130,6 +140,10 @@ class ListPage extends connect(store)(LitElement) {
     this.requestUpdate();
   }
 
+  onEdit(id) {
+    Router.go(`/edit/${id}`);
+  }
+
   renderList() {
     return this._employees.map(employee => {
       return html`<div class="list-item">
@@ -143,7 +157,9 @@ class ListPage extends connect(store)(LitElement) {
           )}
         </div>
         <div class="buttons">
-          <button class="edit">EDIT</button>
+          <button class="edit" @click=${() => this.onEdit(employee.id)}>
+            EDIT
+          </button>
           <button class="delete" @click=${() => this.onDelete(employee.id)}>
             DELETE
           </button>
@@ -162,8 +178,6 @@ class ListPage extends connect(store)(LitElement) {
         ${Object.values(e).map(v => html`<td>${v}</td>`)}
       </tr>`;
     });
-
-    console.log(body);
 
     return html`<table class="table">
       <thead>
