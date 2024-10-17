@@ -6,7 +6,9 @@ export const saveState = state => {
   localStorage.setItem('STORE_KEY', stringifiedState);
 };
 export const loadState = () => {
-  let json = localStorage.getItem('STORE_KEY') || '{"employees":[]}';
+  let json =
+    localStorage.getItem('STORE_KEY') ||
+    '{"employees":[],"emailList":[],"phoneList":[]}';
 
   let state = JSON.parse(json);
 

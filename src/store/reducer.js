@@ -3,12 +3,21 @@ import { PAGE_ELEMENT_COUNT } from '../pages/list/list-page.constants';
 
 const INITIAL_STATE = {
   employees: [],
+  emailList: [],
+  phoneList: [],
 };
 
 export const ADD = 'ADD';
 export const GET_ALL = 'GET_ALL';
 export const DELETE = 'DELETE';
 export const UPDATE = 'UPDATE';
+
+export const uniqnessChecker = (state, email, phoneNumber) => {
+  return (
+    !state.emailList.find(e => e === email) &&
+    !state.phoneList.find(p => p === phoneNumber)
+  );
+};
 
 export const employeeSelector = (state, pageNumber) => {
   return state.employees.slice(
@@ -66,6 +75,8 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case ADD:
       return {
         ...state,
+        phoneList: [...state.phoneList, action.employee.phoneNumber],
+        emailList: [...state.emailList, action.employee.email],
         employees: [...state.employees, { ...action.employee, id: uuidv4() }],
       };
     case GET_ALL:

@@ -1,5 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { connect } from 'pwa-helpers';
+import { Router } from '@vaadin/router';
+import { msg } from '@lit/localize';
 
 import { store } from '../../store/store';
 import {
@@ -8,8 +10,6 @@ import {
   employeeSelector,
 } from '../../store/reducer';
 import { PAGE_ELEMENT_COUNT, TABS } from './list-page.constants';
-import { Router } from '@vaadin/router';
-import { msg } from '@lit/localize';
 
 class ListPage extends connect(store)(LitElement) {
   static state = {

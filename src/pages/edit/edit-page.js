@@ -1,11 +1,11 @@
 import { connect } from 'pwa-helpers';
 import { LitElement, html } from 'lit';
 import { Router } from '@vaadin/router';
+import { msg } from '@lit/localize';
 
 import { store } from '../../store/store';
 import { findEmployee, updateEmployee } from '../../store/reducer';
 import '../../components/employee-form/employee-form';
-import { msg } from '@lit/localize';
 
 class EditPage extends connect(store)(LitElement) {
   static state = {
