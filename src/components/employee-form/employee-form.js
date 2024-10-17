@@ -129,13 +129,13 @@ class EmployeeForm extends LitElement {
             value=${DEPARTMENTS.ANALYTICS}
             .selected=${this.initialValues.department === DEPARTMENTS.ANALYTICS}
           >
-            ${msg(DEPARTMENTS.ANALYTICS)}
+            ${msg('ANALYTICS')}
           </option>
           <option
             value=${DEPARTMENTS.TECH}
             .selected=${this.initialValues.department === DEPARTMENTS.TECH}
           >
-            ${msg(DEPARTMENTS.TECH)}
+            ${msg('TECH')}
           </option>
         </select>
         <label>${msg('Position')}</label>
@@ -150,19 +150,19 @@ class EmployeeForm extends LitElement {
             value=${POSITIONS.JUNIOR}
             .selected=${this.initialValues.position === POSITIONS.JUNIOR}
           >
-            ${msg(POSITIONS.JUNIOR)}
+            ${msg('JUNIOR')}
           </option>
           <option
             value=${POSITIONS.MEDIOR}
             .selected=${this.initialValues.position === POSITIONS.MEDIOR}
           >
-            ${msg(POSITIONS.MEDIOR)}
+            ${msg('MEDIOR')}
           </option>
           <option
             value=${POSITIONS.SENIOR}
             .selected=${this.initialValues.position === POSITIONS.SENIOR}
           >
-            ${msg(POSITIONS.SENIOR)}
+            ${msg('SENIOR')}
           </option>
         </select>
         <button class="submit-button" id="submit-button" type="submit">

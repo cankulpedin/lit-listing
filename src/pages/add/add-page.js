@@ -3,9 +3,10 @@ import { LitElement, html } from 'lit';
 import { Router } from '@vaadin/router';
 
 import { store } from '../../store/store';
-import { add } from '../../store/reducer';
+import { add, uniqnessChecker } from '../../store/reducer';
 
 import '../../components/employee-form/employee-form';
+import { msg } from '@lit/localize';
 
 class AddPage extends connect(store)(LitElement) {
   onFormSubmit(event) {
@@ -17,9 +18,10 @@ class AddPage extends connect(store)(LitElement) {
       data[pair[0]] = pair[1];
     }
 
-    // if (!uniqnessChecker(store, data.email, data.phoneNumber)) {
-    //
-    // }
+    if (!uniqnessChecker(store.getState(), data.email, data.phoneNumber)) {
+      confirm(msg('This user data already exists!'));
+      return;
+    }
     store.dispatch(add(data));
     Router.go(`/list`);
   }

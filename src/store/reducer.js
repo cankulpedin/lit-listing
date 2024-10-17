@@ -13,9 +13,10 @@ export const DELETE = 'DELETE';
 export const UPDATE = 'UPDATE';
 
 export const uniqnessChecker = (state, email, phoneNumber) => {
+  console.log(state?.emailList, state?.phoneList, state.employees);
   return (
-    !state.emailList.find(e => e === email) &&
-    !state.phoneList.find(p => p === phoneNumber)
+    !state?.emailList?.find(e => e === email) &&
+    !state?.phoneList?.find(p => p === phoneNumber)
   );
 };
 

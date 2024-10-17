@@ -62,33 +62,37 @@
   <source>Department</source>
   <target>Departman</target>
 </trans-unit>
-<trans-unit id="s2c2b04f2561a1d4b">
-  <source>Analytics</source>
-  <target>Analitik</target>
-</trans-unit>
-<trans-unit id="s24aadbfb1b1a1a11">
-  <source>Tech</source>
-  <target>Teknik</target>
-</trans-unit>
 <trans-unit id="sc1611c0558728a2a">
   <source>Position</source>
   <target>Pozisyon</target>
 </trans-unit>
-<trans-unit id="s7404d9208a486318">
-  <source>Junior</source>
-  <target>Yeni</target>
-</trans-unit>
-<trans-unit id="sacc4d771f79ccced">
-  <source>Medior</source>
-  <target>Orta Seviye</target>
-</trans-unit>
-<trans-unit id="s8a37652cc28d3c55">
-  <source>Senior</source>
-  <target>Uzman</target>
-</trans-unit>
 <trans-unit id="sb3d4f79d9d8b71e5">
   <source>Submit</source>
   <target>Gönder</target>
+</trans-unit>
+<trans-unit id="s72edd2e39ee2780b">
+  <source>ANALYTICS</source>
+  <target>Analitik</target>
+</trans-unit>
+<trans-unit id="s0f0e9bfa7dbda931">
+  <source>TECH</source>
+  <target>Teknik</target>
+</trans-unit>
+<trans-unit id="sa2ba30aeb703e9b8">
+  <source>JUNIOR</source>
+  <target>Başlangıç</target>
+</trans-unit>
+<trans-unit id="s0886f789eac2150d">
+  <source>MEDIOR</source>
+  <target>Orta</target>
+</trans-unit>
+<trans-unit id="sde8f7ed1b3d2b5f5">
+  <source>SENIOR</source>
+  <target>Uzman</target>
+</trans-unit>
+<trans-unit id="s0b1fe7e1fc9e51f7">
+  <source>This user data already exists!</source>
+  <target>Bu kullanıcı verisi mevcutta var!</target>
 </trans-unit>
 </body>
 </file>
