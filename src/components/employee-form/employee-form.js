@@ -54,6 +54,7 @@ class EmployeeForm extends LitElement {
   }
 
   render() {
+    console.log(this.initialValues.position);
     return html`
       <form class="form" @submit="${this.onFormSubmit}">
         <label>${msg('First Name')}</label>
@@ -121,25 +122,48 @@ class EmployeeForm extends LitElement {
           class="form-input"
           name="department"
           id="department"
-          selected=${this.initialValues.department}
           placeholder=${msg('Department')}
           required
         >
-          <option value="Analytics">${msg('Analytics')}</option>
-          <option value="Tech">${msg('Tech')}</option>
+          <option
+            value="Analytics"
+            .selected=${this.initialValues.department === 'Analytics'}
+          >
+            ${msg('Analytics')}
+          </option>
+          <option
+            value="Tech"
+            .selected=${this.initialValues.department === 'Tech'}
+          >
+            ${msg('Tech')}
+          </option>
         </select>
         <label>${msg('Position')}</label>
         <select
           class="form-input"
           name="position"
           id="position"
-          selected=${this.initialValues.position}
           placeholder=${msg('Position')}
           required
         >
-          <option value="Junior">${msg('Junior')}</option>
-          <option value="Medior">${msg('Medior')}</option>
-          <option value="Senior">${msg('Senior')}</option>
+          <option
+            value="Junior"
+            .selected=${this.initialValues.position === 'Junior'}
+          >
+            ${msg('Junior')}
+          </option>
+          <option
+            value="Medior"
+            .selected=${this.initialValues.position === 'Medior'}
+          >
+            ${msg('Medior')}
+          </option>
+          <option
+            value="Senior"
+            .selected=${this.initialValues.position === 'Senior'}
+          >
+            ${msg('Senior')}
+          </option>
         </select>
         <button class="submit-button" type="submit">${msg('Submit')}</button>
       </form>
