@@ -51,6 +51,34 @@ class ListPage extends connect(store)(LitElement) {
 
       .tab-content {
         margin-top: 32px;
+        .action-buttons {
+          display: flex;
+          flex-direction: column;
+          width: 30%;
+
+          &.table-buttons {
+            width: 100%;
+          }
+
+          @media (max-width: 720px) {
+            flex-direction: row;
+          }
+
+          .edit {
+            cursor: pointer;
+            margin-bottom: 16px;
+
+            @media (max-width: 720px) {
+              flex-direction: row;
+              margin-bottom: 0;
+              margin-right: 8px;
+            }
+          }
+          .delete {
+            cursor: pointer;
+            background-color: red;
+          }
+        }
 
         .list-item {
           background-color: white;
@@ -66,31 +94,6 @@ class ListPage extends connect(store)(LitElement) {
 
           .key-value-pair {
             margin-bottom: 8px;
-          }
-
-          .buttons {
-            display: flex;
-            flex-direction: column;
-            width: 30%;
-
-            @media (max-width: 720px) {
-              flex-direction: row;
-            }
-
-            .edit {
-              cursor: pointer;
-              margin-bottom: 16px;
-
-              @media (max-width: 720px) {
-                flex-direction: row;
-                margin-bottom: 0;
-                margin-right: 8px;
-              }
-            }
-            .delete {
-              cursor: pointer;
-              background-color: red;
-            }
           }
         }
 
@@ -208,7 +211,7 @@ class ListPage extends connect(store)(LitElement) {
             `,
           )}
         </div>
-        <div class="buttons">
+        <div class="action-buttons">
           <button class="edit" @click=${() => this.onEdit(employee.id)}>
             ${msg('EDIT')}
           </button>
@@ -222,12 +225,31 @@ class ListPage extends connect(store)(LitElement) {
 
   renderTable() {
     const headers = Object.keys(this._employees[0] || []).map(
-      el => html`<th scope="col">${el}</th>`,
+      el => html`<th scope="col">${el !== 'id' ? el : ''}</th>`,
     );
 
     const body = this._employees?.map(e => {
       return html`<tr>
-        ${Object.values(e).map(v => html`<td>${v}</td>`)}
+        ${Object.keys(e).map(
+          k =>
+            html`<td>
+              ${k !== 'id'
+                ? e[k]
+                : html`
+                    <div class="action-buttons table-buttons">
+                      <button class="edit" @click=${() => this.onEdit(e.id)}>
+                        ${msg('EDIT')}
+                      </button>
+                      <button
+                        class="delete"
+                        @click=${() => this.onDelete(e.id)}
+                      >
+                        ${msg('DELETE')}
+                      </button>
+                    </div>
+                  `}
+            </td>`,
+        )}
       </tr>`;
     });
 
