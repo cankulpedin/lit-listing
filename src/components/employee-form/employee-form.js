@@ -54,7 +54,6 @@ class EmployeeForm extends LitElement {
   }
 
   render() {
-    console.log(this.initialValues.position);
     return html`
       <form class="form" @submit="${this.onFormSubmit}">
         <label>${msg('First Name')}</label>

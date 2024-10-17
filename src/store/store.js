@@ -2,7 +2,6 @@ import { createStore } from 'redux';
 import { reducer } from './reducer.js';
 
 export const saveState = state => {
-  console.log(state);
   let stringifiedState = JSON.stringify(state);
   localStorage.setItem('STORE_KEY', stringifiedState);
 };
