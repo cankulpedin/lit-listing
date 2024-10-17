@@ -6,8 +6,9 @@ import '../navbar-button/button.js';
 class Sidebar extends LitElement {
   static styles = css`
     :host {
-      width: 20%;
+      width: 30%;
       border-right: 1px solid black;
+      height: 100%;
     }
 
     .sidebar-wrapper {

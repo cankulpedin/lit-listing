@@ -61,6 +61,7 @@ class EmployeeForm extends LitElement {
           class="form-input"
           type="text"
           name="firstName"
+          id="firstName"
           value=${this.initialValues.firstName}
           placeholder=${msg('First Name')}
           required
@@ -70,6 +71,7 @@ class EmployeeForm extends LitElement {
           class="form-input"
           type="text"
           name="lastName"
+          id="lastName"
           value=${this.initialValues.lastName}
           placeholder=${msg('Last Name')}
           required
@@ -79,6 +81,7 @@ class EmployeeForm extends LitElement {
           class="form-input"
           type="date"
           name="employmentDate"
+          id="employmentDate"
           value=${this.initialValues.employmentDate}
           placeholder=${msg('Date of Employment')}
           required
@@ -88,6 +91,7 @@ class EmployeeForm extends LitElement {
           class="form-input"
           type="date"
           name="birthDate"
+          id="birthDate"
           value=${this.initialValues.birthDate}
           placeholder=${msg('Date of Birth')}
           required
@@ -97,6 +101,7 @@ class EmployeeForm extends LitElement {
           class="form-input"
           type="tel"
           name="phoneNumber"
+          id="phoneNumber"
           value=${this.initialValues.phoneNumber}
           placeholder=${msg('Phone Number')}
           required
@@ -106,6 +111,7 @@ class EmployeeForm extends LitElement {
           class="form-input"
           type="email"
           name="email"
+          id="email"
           value=${this.initialValues.email}
           placeholder=${msg('Email Address')}
           required
@@ -114,6 +120,7 @@ class EmployeeForm extends LitElement {
         <select
           class="form-input"
           name="department"
+          id="department"
           selected=${this.initialValues.department}
           placeholder=${msg('Department')}
           required
@@ -125,6 +132,7 @@ class EmployeeForm extends LitElement {
         <select
           class="form-input"
           name="position"
+          id="position"
           selected=${this.initialValues.position}
           placeholder=${msg('Position')}
           required

@@ -56,9 +56,13 @@ class ListPage extends connect(store)(LitElement) {
           background-color: white;
           padding: 16px;
           margin-bottom: 16px;
-          max-width: 50%;
+          max-width: 80%;
           display: flex;
           flex-direction: row;
+
+          @media (max-width: 720px) {
+            flex-direction: column;
+          }
 
           .key-value-pair {
             margin-bottom: 8px;
@@ -69,9 +73,19 @@ class ListPage extends connect(store)(LitElement) {
             flex-direction: column;
             width: 30%;
 
+            @media (max-width: 720px) {
+              flex-direction: row;
+            }
+
             .edit {
               cursor: pointer;
               margin-bottom: 16px;
+
+              @media (max-width: 720px) {
+                flex-direction: row;
+                margin-bottom: 0;
+                margin-right: 8px;
+              }
             }
             .delete {
               cursor: pointer;
@@ -81,10 +95,47 @@ class ListPage extends connect(store)(LitElement) {
         }
 
         .table {
+          border-collapse: collapse;
+
           th,
           td {
             border: 1px solid rgb(160 160 160);
             padding: 8px 10px;
+          }
+        }
+
+        @media screen and (max-width: 720px) {
+          table,
+          thead,
+          tbody,
+          th,
+          td,
+          tr {
+            display: block;
+          }
+
+          thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+          }
+
+          tr {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+          }
+
+          td {
+            border: none;
+            position: relative;
+            padding-left: 50%;
+          }
+
+          td:before {
+            position: absolute;
+            left: 6px;
+            content: attr(data-label);
+            font-weight: bold;
           }
         }
       }

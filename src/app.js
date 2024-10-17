@@ -5,10 +5,6 @@ import './components/sidebar/sidebar.js';
 import { router } from './router/router';
 
 class IngProj extends LitElement {
-  static properties = {
-    header: { type: String },
-  };
-
   static styles = css`
     .main-wrapper {
       display: flex;
@@ -26,12 +22,10 @@ class IngProj extends LitElement {
 
   constructor() {
     super();
-    this.header = 'My app';
   }
 
   firstUpdated() {
     super.firstUpdated();
-
     this.router = router(this);
   }
 
