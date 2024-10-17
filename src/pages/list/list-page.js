@@ -221,11 +221,11 @@ class ListPage extends connect(store)(LitElement) {
   }
 
   renderTable() {
-    const headers = Object.keys(this._employees[0]).map(
+    const headers = Object.keys(this._employees[0] || []).map(
       el => html`<th scope="col">${el}</th>`,
     );
 
-    const body = this._employees.map(e => {
+    const body = this._employees?.map(e => {
       return html`<tr>
         ${Object.values(e).map(v => html`<td>${v}</td>`)}
       </tr>`;

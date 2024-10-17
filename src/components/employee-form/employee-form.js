@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit';
 
 import validations from './employee-form.validation';
 import { msg } from '@lit/localize';
+import { DEPARTMENTS, POSITIONS } from './employee-form.contants';
 
 class EmployeeForm extends LitElement {
   static get properties() {
@@ -125,16 +126,16 @@ class EmployeeForm extends LitElement {
           required
         >
           <option
-            value="Analytics"
-            .selected=${this.initialValues.department === 'Analytics'}
+            value=${DEPARTMENTS.ANALYTICS}
+            .selected=${this.initialValues.department === DEPARTMENTS.ANALYTICS}
           >
-            ${msg('Analytics')}
+            ${msg(DEPARTMENTS.ANALYTICS)}
           </option>
           <option
-            value="Tech"
-            .selected=${this.initialValues.department === 'Tech'}
+            value=${DEPARTMENTS.TECH}
+            .selected=${this.initialValues.department === DEPARTMENTS.TECH}
           >
-            ${msg('Tech')}
+            ${msg(DEPARTMENTS.TECH)}
           </option>
         </select>
         <label>${msg('Position')}</label>
@@ -146,25 +147,27 @@ class EmployeeForm extends LitElement {
           required
         >
           <option
-            value="Junior"
-            .selected=${this.initialValues.position === 'Junior'}
+            value=${POSITIONS.JUNIOR}
+            .selected=${this.initialValues.position === POSITIONS.JUNIOR}
           >
-            ${msg('Junior')}
+            ${msg(POSITIONS.JUNIOR)}
           </option>
           <option
-            value="Medior"
-            .selected=${this.initialValues.position === 'Medior'}
+            value=${POSITIONS.MEDIOR}
+            .selected=${this.initialValues.position === POSITIONS.MEDIOR}
           >
-            ${msg('Medior')}
+            ${msg(POSITIONS.MEDIOR)}
           </option>
           <option
-            value="Senior"
-            .selected=${this.initialValues.position === 'Senior'}
+            value=${POSITIONS.SENIOR}
+            .selected=${this.initialValues.position === POSITIONS.SENIOR}
           >
-            ${msg('Senior')}
+            ${msg(POSITIONS.SENIOR)}
           </option>
         </select>
-        <button class="submit-button" type="submit">${msg('Submit')}</button>
+        <button class="submit-button" id="submit-button" type="submit">
+          ${msg('Submit')}
+        </button>
       </form>
     `;
   }

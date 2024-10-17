@@ -1,38 +1,27 @@
 import { html } from 'lit';
-import { fixture, expect, fixtureCleanup } from '@open-wc/testing';
-import '../src/components/employee-form/employee-form';
+import { fixture, expect } from '@open-wc/testing';
+import { Router } from '@vaadin/router';
+
+import '../src/pages/add/add-page';
 import {
   DEPARTMENTS,
   POSITIONS,
 } from '../src/components/employee-form/employee-form.contants';
 import Sinon from 'sinon';
 
-describe('EmployeeForm', () => {
+describe('AddPage', () => {
   let element;
-  const onSubmit = Sinon.fake();
   beforeEach(async () => {
-    element = await fixture(
-      html`<employee-form
-        initialValues="${{}}"
-        .onSubmit="${onSubmit}"
-      ></employee-form>`,
-    );
+    element = await fixture(html`<add-page></add-page>`);
   });
 
-  afterEach(() => {
-    fixtureCleanup();
-  });
+  it('renders add employee form & succesfully submits', () => {
+    const goStub = Sinon.stub(Router, 'go');
 
-  it('renders form by default', () => {
-    const form = element.shadowRoot.querySelector('form');
-
-    expect(form).to.exist;
-
-    // expect(form.children).to.equal(16);
-  });
-
-  it('should validate form values on submit', () => {
-    const form = element.shadowRoot.querySelector('form');
+    const form = element.shadowRoot
+      .querySelector('div')
+      .querySelector('employee-form')
+      .shadowRoot.querySelector('form');
 
     const firstNameInput = form.querySelector('#firstName');
     const lastName = form.querySelector('#lastName');
@@ -43,6 +32,7 @@ describe('EmployeeForm', () => {
     const department = form.querySelector('#department');
     const position = form.querySelector('#position');
 
+    expect(form).to.exist;
     expect(firstNameInput).to.exist;
     expect(lastName).to.exist;
     expect(employmentDate).to.exist;
@@ -66,6 +56,6 @@ describe('EmployeeForm', () => {
 
     button.click();
 
-    expect(onSubmit).to.have.been.calledWith();
+    expect(goStub).to.have.been.calledWith('/list');
   });
 });
